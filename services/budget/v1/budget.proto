@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package services.budget.v1;
+
+service BudgetService {
+	rpc DictionaryUsage (DictionaryUsageRequest) returns (DictionaryUsageResponse) {}
+}
+
+message DictionaryUsageRequest {
+	string id = 1;
+}
+
+message DictionaryUsageResponse {
+	bool usage = 1;
+}
