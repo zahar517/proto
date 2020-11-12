@@ -9,9 +9,9 @@ jobs:
         uses: actions/checkout@v1
         with:
           ref: master
-      - name: checkout-master
+      - name: checkout-main
         if: success()
-        run: git checkout master
+        run: git checkout main
       - name: checkout
         if: success()
         uses: actions/checkout@v1
