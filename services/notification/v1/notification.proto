@@ -6,16 +6,9 @@ service NotificationService {
 	rpc SendMail (SendMailRequest) returns (SendMailResponse) {}
 }
 
-enum MailType {
-    MAIL_TYPE_UNKNOWN_UNSPECIFIED = 0;
-    MAIL_TYPE_CORRECTION_CREATED = 1;
-    MAIL_TYPE_CORRECTION_APPROVED = 2;
-    MAIL_TYPE_CORRECTION_REJECTED = 3;
-}
-
 message SendMailRequest {
 	string id = 1;
-    MailType type = 2;
+    string type = 2;
     string from = 3;
     repeated string to = 4;
     repeated string cc = 5;

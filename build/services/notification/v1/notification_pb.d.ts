@@ -10,8 +10,8 @@ export class SendMailRequest extends jspb.Message {
     getId(): string;
     setId(value: string): SendMailRequest;
 
-    getType(): MailType;
-    setType(value: MailType): SendMailRequest;
+    getType(): string;
+    setType(value: string): SendMailRequest;
 
     getFrom(): string;
     setFrom(value: string): SendMailRequest;
@@ -51,7 +51,7 @@ export class SendMailRequest extends jspb.Message {
 export namespace SendMailRequest {
     export type AsObject = {
         id: string,
-        type: MailType,
+        type: string,
         from: string,
         toList: Array<string>,
         ccList: Array<string>,
@@ -80,11 +80,4 @@ export namespace SendMailResponse {
     export type AsObject = {
         success: boolean,
     }
-}
-
-export enum MailType {
-    MAIL_TYPE_UNKNOWN_UNSPECIFIED = 0,
-    MAIL_TYPE_CORRECTION_CREATED = 1,
-    MAIL_TYPE_CORRECTION_APPROVED = 2,
-    MAIL_TYPE_CORRECTION_REJECTED = 3,
 }

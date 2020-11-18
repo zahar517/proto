@@ -12,7 +12,6 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-goog.exportSymbol('proto.services.notification.v1.MailType', null, global);
 goog.exportSymbol('proto.services.notification.v1.SendMailRequest', null, global);
 goog.exportSymbol('proto.services.notification.v1.SendMailResponse', null, global);
 /**
@@ -97,7 +96,7 @@ proto.services.notification.v1.SendMailRequest.prototype.toObject = function(opt
 proto.services.notification.v1.SendMailRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    type: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    type: jspb.Message.getFieldWithDefault(msg, 2, ""),
     from: jspb.Message.getFieldWithDefault(msg, 3, ""),
     toList: (f = jspb.Message.getRepeatedField(msg, 4)) == null ? undefined : f,
     ccList: (f = jspb.Message.getRepeatedField(msg, 5)) == null ? undefined : f,
@@ -145,7 +144,7 @@ proto.services.notification.v1.SendMailRequest.deserializeBinaryFromReader = fun
       msg.setId(value);
       break;
     case 2:
-      var value = /** @type {!proto.services.notification.v1.MailType} */ (reader.readEnum());
+      var value = /** @type {string} */ (reader.readString());
       msg.setType(value);
       break;
     case 3:
@@ -209,8 +208,8 @@ proto.services.notification.v1.SendMailRequest.serializeBinaryToWriter = functio
     );
   }
   f = message.getType();
-  if (f !== 0.0) {
-    writer.writeEnum(
+  if (f.length > 0) {
+    writer.writeString(
       2,
       f
     );
@@ -279,20 +278,20 @@ proto.services.notification.v1.SendMailRequest.prototype.setId = function(value)
 
 
 /**
- * optional MailType type = 2;
- * @return {!proto.services.notification.v1.MailType}
+ * optional string type = 2;
+ * @return {string}
  */
 proto.services.notification.v1.SendMailRequest.prototype.getType = function() {
-  return /** @type {!proto.services.notification.v1.MailType} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /**
- * @param {!proto.services.notification.v1.MailType} value
+ * @param {string} value
  * @return {!proto.services.notification.v1.SendMailRequest} returns this
  */
 proto.services.notification.v1.SendMailRequest.prototype.setType = function(value) {
-  return jspb.Message.setProto3EnumField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -590,15 +589,5 @@ proto.services.notification.v1.SendMailResponse.prototype.setSuccess = function(
   return jspb.Message.setProto3BooleanField(this, 1, value);
 };
 
-
-/**
- * @enum {number}
- */
-proto.services.notification.v1.MailType = {
-  MAIL_TYPE_UNKNOWN_UNSPECIFIED: 0,
-  MAIL_TYPE_CORRECTION_CREATED: 1,
-  MAIL_TYPE_CORRECTION_APPROVED: 2,
-  MAIL_TYPE_CORRECTION_REJECTED: 3
-};
 
 goog.object.extend(exports, proto.services.notification.v1);

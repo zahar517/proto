@@ -2,15 +2,17 @@
 
 #### compile services:
 ```bash
-buf lint
-buf generate
+buf check lint // Check that the input location passes lint checks.
+buf check breaking // Check that the input location has no breaking changes compared to the against location.
+
+buf generate // Generate stubs for protoc plugins using a template. 
 ```
 
 #### import:
 ```javascript
 import { credentials } from '@grpc/grpc-js';
-import { SendMailRequest, MailType } from './build/services/notification/v1/notification_pb';
-import { NotificationServiceClient } from './build/services/notification/v1/notification_grpc_pb';
+import { SendMailRequest, MailType } from '@proto/notificationClinet';
+import { NotificationServiceClient } from '@proto/notificationServer';
 ```
 
 #### client:
@@ -35,10 +37,6 @@ client.sendMail(request, (err, response) => {
 
 #### server:
 ```javascript
-const { Server, ServerCredentials } = require('@grpc/grpc-js');
-const { SendMailResponse } = require('./build/services/notification/v1/notification_pb');
-const { NotificationServiceService } = require('./build/services/notification/v1/notification_grpc_pb');
-
 function sendMail({ request }, callback) {
     console.info('request:', request.toObject());
     const response = new SendMailResponse();
