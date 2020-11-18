@@ -1,11 +1,14 @@
 ## Usage example:
 
+#### Requirements: 
+buf: https://docs.buf.build/installation
+
 #### compile services:
 ```bash
-buf check lint // Check that the input location passes lint checks.
-buf check breaking // Check that the input location has no breaking changes compared to the against location.
+buf check lint #Check that the input location passes lint checks.
+buf check breaking #Check that the input location has no breaking changes compared to the against location.
 
-buf generate // Generate stubs for protoc plugins using a template. 
+buf generate  #Generate stubs for protoc plugins using a template. 
 ```
 
 #### import:
