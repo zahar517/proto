@@ -11,8 +11,7 @@ buf generate // Generate stubs for protoc plugins using a template.
 #### import:
 ```javascript
 import { credentials } from '@grpc/grpc-js';
-import { SendMailRequest, MailType } from '@proto/notificationClinet';
-import { NotificationServiceClient } from '@proto/notificationServer';
+import { NotificationServiceClient, SendMailRequest, MailType } from '@mrm/proto/services/notification/v1';
 ```
 
 #### client:
